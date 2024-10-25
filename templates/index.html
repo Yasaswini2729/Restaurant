@@ -1,0 +1,19 @@
+<h3>Sir we want break !</h3>
+<h3>No after 4:30 only !</h3>
+<hr>
+
+{% for record in res %}
+    <p>{{ record.item }} ---- {{ record.price }}</p>
+{% endfor %}
+<hr>
+<form method="POST">{% csrf_token %}
+    <label for="input_price">Enter id</label>
+    <input type="number" name="sno" id="input_price" placeholder="enter id" required>
+    <button type="submit">Search</button>
+</form>
+<hr>
+{% if res2 %}
+<h3>you searched for {{ res2.item }} and price {{ res2.price }}</h3>
+{% else %}
+<h3>Babu the item that you requested doesn't exists !</h3>
+{% endif %}

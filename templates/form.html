@@ -1,0 +1,26 @@
+<table border="1">
+    <thead>
+        <tr>
+            <td>dish</td>
+            <td>price</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for record in res %}
+        <tr>
+            <td>{{ record.item }}</td>
+            <td>{{ record.price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<hr>
+<br>
+<form  method="POST">{% csrf_token %}
+    <label for="foodId"></label>
+    <input placeholder="Enter Dish" type="text" name="food" id="foodId" required>
+    <label for="priceId"></label>
+    <input placeholder="Enter price" type="number" name="food_price" id="priceId" required>
+    <button type="submit">Add</button>
+</form>
